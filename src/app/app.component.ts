@@ -11,6 +11,8 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { UsersService } from './services/users/users.service';
 import { RegistersService, Register } from './services/registers/registers.service';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzTableModule } from 'ng-zorro-antd/table';
+
 
 @Component({
   selector: 'app-root',
@@ -26,13 +28,15 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
     NzAvatarModule,
     NzFlexModule,
     NzToolTipModule,
-    NzDropDownModule
+    NzDropDownModule,
+    NzTableModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   isCollapsed = false;
+  title = 'app-ngzorro-mat';
 
   constructor(private usersService: UsersService, public registersService: RegistersService) { }
 

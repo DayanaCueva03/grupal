@@ -1,0 +1,44 @@
+<div class="container-fluid text-center">
+    <h1>Productos</h1>
+  
+    <form [formGroup]="form" (ngSubmit)="addProducto()">
+      <div class="mb-4">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" formControlName="nombre">
+        <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" class="error-message">
+          El nombre es requerido
+        </div>
+      </div>
+     
+      <div class="mb-4">
+        <label for="precio" class="form-label">Precio</label>
+        <input type="text" class="form-control" id="precio" formControlName="precio">
+        <div *ngIf="form.get('precio')?.invalid && form.get('precio')?.touched" class="error-message">
+          El precio es requerido
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+        <div *ngIf="form.get('descripcion')?.invalid && form.get('descripcion')?.touched" class="error-message">
+          La Descripción es requerida
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Crear</button>
+    </form>
+  
+    <ul class="product-list">
+      <li *ngFor="let producto of producto">
+        <div>
+          <strong>Nombre:</strong> {{ producto.nombre }} <br>
+          <strong>Precio:</strong> ${{ producto.precio }} <br>
+          <strong>Descripción:</strong> {{ producto.descripcion }}
+        </div>
+        <div class="product-actions">
+          <button class="btn update-btn" (click)="updateProducto(producto)">Actualizar</button>
+          <button class="btn delete-btn" (click)="deleteProducto(producto)">Eliminar</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
